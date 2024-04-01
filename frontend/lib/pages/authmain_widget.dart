@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proiect_ic/pages/Register.dart';
 
 class AuthmainWidget extends StatefulWidget {
   const AuthmainWidget({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class _AuthmainWidgetState extends State<AuthmainWidget> {
                 Text(
                   'Your Fragrance, Your Story...',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.robotoSlab(
+                  style: GoogleFonts.playfairDisplay(
                     color: Colors.black,
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
@@ -91,13 +92,19 @@ class _AuthmainWidgetState extends State<AuthmainWidget> {
                 SizedBox(height: 20),
                 Text(
                   'Don\'t have an account yet?',
-                  style: TextStyle(fontStyle: FontStyle.italic),
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.playfairDisplay(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  )
                 ),
                 SizedBox(height: 10),
                 ElevatedButton(
-                  onPressed: () {
-                    // Handle register button press
-                  },
+                  onPressed: ()  {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccountWidget()),
+          );
+        },
                   child: Text('Register'),
                 ),
               ],

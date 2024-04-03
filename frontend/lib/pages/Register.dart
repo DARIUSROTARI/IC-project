@@ -66,7 +66,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
         backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView( // Folosim SingleChildScrollView aici
+          child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,

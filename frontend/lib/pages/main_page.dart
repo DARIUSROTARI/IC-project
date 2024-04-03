@@ -41,7 +41,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white, // Example color, replace with your desired color
+        backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
           child: Column(
@@ -58,9 +58,9 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                         width: 60,
                         height: 20,
                         decoration: BoxDecoration(
-                          color: Colors.black, // Example color, replace with your desired color
+                          color: Colors.black,
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.black), // Example color, replace with your desired color
+                          border: Border.all(color: Colors.black),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -71,7 +71,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                               textAlign: TextAlign.center,
 
                               style: GoogleFonts.playfairDisplay(
-                                color: Colors.white, // Example color, replace with your desired color
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -85,7 +85,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-                          color: Colors.white, // Example color, replace with your desired color
+                          color: Colors.white,
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
@@ -104,7 +104,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-                          color: Colors.white, // Example color, replace with your desired color
+                          color: Colors.white,
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
@@ -172,7 +172,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                 width: 273,
                 height: 30,
                 decoration: BoxDecoration(
-                  color: Colors.white, // Example color, replace with your desired color
+                  color: Colors.white,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -202,7 +202,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                 width: 188,
                 height: 32,
                 decoration: BoxDecoration(
-                  color: Colors.white, // Example color, replace with your desired color
+                  color: Colors.white,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -230,7 +230,7 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                 width: 191,
                 height: 33,
                 decoration: BoxDecoration(
-                  color: Colors.white, // Example color, replace with your desired color
+                  color: Colors.white,
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,

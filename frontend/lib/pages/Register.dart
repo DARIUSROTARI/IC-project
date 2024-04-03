@@ -187,6 +187,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     ),
                     child: Center(
                       child: Text(
+                        style:GoogleFonts.playfairDisplay(),
                         'Create Account',
                       ),
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proiect_ic/pages/Register.dart';
 import 'package:proiect_ic/pages/main_page.dart';
+import 'package:proiect_ic/services/auth_service.dart';
 
 class AuthmainWidget extends StatefulWidget {
   const AuthmainWidget({Key? key}) : super(key: key);
@@ -86,8 +87,7 @@ class _AuthmainWidgetState extends State<AuthmainWidget> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>MainpageWidget()),
-                    );
+                      AuthService.login(context, _textFieldController1!.text, _textFieldController2!.text);
                   },
                   child: Text('Login'),
                 ),

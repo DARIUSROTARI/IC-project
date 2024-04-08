@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:proiect_ic/pages/main_page.dart';
 import '../models/register_model.dart'; // Importăm modelul de creare a contului
 export '../models/register_model.dart';
 
@@ -185,6 +186,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         width: 2,
                       ),
                     ),
+                    child: TextButton( // Folosim un TextButton pentru a gestiona evenimentul de apăsare
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MainpageWidget())); // Navigăm către pagina principală
+                      },
                     child: Center(
                       child: Text(
                         style:GoogleFonts.playfairDisplay(),
@@ -192,6 +197,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       ),
                     ),
                   ),
+                ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,

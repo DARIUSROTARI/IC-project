@@ -1,4 +1,4 @@
-package ic.project.ArtDuParfum;
+package artduparfum.ArtDuParfum;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

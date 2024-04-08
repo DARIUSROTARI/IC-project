@@ -1,6 +1,20 @@
-spring:
-  application:
-    name: ArtDuParfum
-
 server:
-  port: 8080
+  error:
+   include-message: always
+   include-binding-errors: always
+
+spring:
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/registration
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    security:
+      user:
+        name: 'user'
+        password: 'password'

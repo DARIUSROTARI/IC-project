@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:proiect_ic/pages/main_page.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import'../pages/category.dart';
+import '../pages/types.dart';
+import '../pages/essences.dart';
+import '../pages/quantity.dart';
 import '../models/menu_model.dart';
 export '../models/menu_model.dart';
 
@@ -43,25 +47,26 @@ class _MenuWidgetState extends State<MenuWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.grey, // You can replace this with your desired color
+        backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, 80, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Menu',
-                      style: TextStyle(
-                        fontFamily: 'Playfair Display',
-                        fontSize: 34,
-                        fontWeight: FontWeight.w500,
-                        fontStyle: FontStyle.italic,
+                      style: GoogleFonts.playfairDisplay(
+                        textStyle: TextStyle(
+                          fontSize: 45,
+                          fontWeight: FontWeight.w600,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ),
                   ],
@@ -72,38 +77,38 @@ class _MenuWidgetState extends State<MenuWidget> {
               buildMenuItem('Essences'),
               buildMenuItem('Perfume quantity'),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 70, 170, 0),
-                child: Container(
-                  width: 134,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Colors.blue, // You can replace this with your desired color
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.black, // You can replace this with your desired color
+                padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: 180, // Adjusted width to fit the text
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ElevatedButton(
+                    child: ElevatedButton(
                       onPressed: ()  {
-                       Navigator.push(context, MaterialPageRoute(builder: (context) => MainpageWidget()),);
-                       },
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MainpageWidget()),);
+                      },
                       child:Text(
                         ' <  Back to About us ',
-                        style: TextStyle(
-                          fontFamily: 'Playfair Display',
-                          color: Colors.white, // You can replace this with your desired color
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: GoogleFonts.playfairDisplay(
+                        textStyle: TextStyle(
+                        color:Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic,
                       ),
+                    ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
+
             ],
           ),
         ),
@@ -114,14 +119,31 @@ class _MenuWidgetState extends State<MenuWidget> {
   Widget buildMenuItem(String title) {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+    child: InkWell(
+      onTap: () {
+      if (title == 'Category') {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => CategoryWidget()),);
+    }
+      else if (title == 'Types') {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => TypesWidget()),);
+    }
+
+      else if (title == 'Essences') {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => EssencesWidget()),);
+    }
+
+      else if (title == 'Perfume quantity') {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => QuantityWidget()),);
+    }
+    },
       child: Container(
         width: 300,
         height: 55,
         decoration: BoxDecoration(
-          color: Colors.grey, // You can replace this with your desired color
+          color: Colors.grey,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: Colors.black, // You can replace this with your desired color
+            color: Colors.black,
           ),
         ),
         child: Row(
@@ -130,14 +152,19 @@ class _MenuWidgetState extends State<MenuWidget> {
           children: [
             Text(
               title,
-              style: TextStyle(
-                fontFamily: 'Playfair Display',
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
+              style: GoogleFonts.playfairDisplay(
+              textStyle: TextStyle(
+              color:Colors.black,
+                fontSize: 25,
+              fontWeight: FontWeight.w400,
+              fontStyle: FontStyle.italic,
             ),
+          ),
+        ),
+
           ],
         ),
+      ),
       ),
     );
   }

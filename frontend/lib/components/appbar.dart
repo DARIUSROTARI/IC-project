@@ -74,7 +74,7 @@ class _AppbarWidgetState extends State<AppbarWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(190, 0, 0, 0),
+            padding: EdgeInsets.fromLTRB(170, 0, 0, 0),
             child: Container(
               width: 30,
               height: 30,
@@ -92,7 +92,7 @@ class _AppbarWidgetState extends State<AppbarWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
             child: Container(
               width: 30,
               height: 30,
@@ -109,8 +109,28 @@ class _AppbarWidgetState extends State<AppbarWidget> {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            child: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              child: ClipRRect(
+                child: Image.asset(
+                  'assets/images/user.jpg',
+                  width: 300,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+
         ],
       ),
     );
+
   }
 }

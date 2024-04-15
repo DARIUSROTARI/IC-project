@@ -111,7 +111,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                   padding: EdgeInsets.fromLTRB(57, 5, 57, 0),
                   child: TextFormField(
                     controller: _model.lastnameController,
-                    focusNode: _model.firstNameFocusNode,
+                    focusNode: _model.lastNameFocusNode,
                     autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
@@ -122,8 +122,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(57, 5, 57, 0),
                   child: TextFormField(
-                    controller: _model.lastnameController,
-                    focusNode: _model.lastNameFocusNode,
+                    controller: _model.firstnameController,
+                    focusNode: _model.firstNameFocusNode,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'First name',

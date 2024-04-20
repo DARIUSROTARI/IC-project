@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "\"users\"")
 @Data
@@ -21,4 +24,12 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
     private String password;
+
+    // un user poate avea mai multe parfumuri
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Parfum> parfumes = new ArrayList<>();
 }

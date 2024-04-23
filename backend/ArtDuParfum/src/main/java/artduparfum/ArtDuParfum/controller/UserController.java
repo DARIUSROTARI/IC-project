@@ -1,9 +1,7 @@
 package artduparfum.ArtDuParfum.controller;
 
-import artduparfum.ArtDuParfum.repository.dto.request.GenderDTO;
 import artduparfum.ArtDuParfum.repository.dto.request.UserLoginDTO;
 import artduparfum.ArtDuParfum.repository.dto.request.UserRegisterDTO;
-import artduparfum.ArtDuParfum.repository.dto.response.GenderResponseDTO;
 import artduparfum.ArtDuParfum.repository.dto.response.UserLoginResponseDTO;
 import artduparfum.ArtDuParfum.repository.dto.response.UserRegisterResponseDTO;
 import artduparfum.ArtDuParfum.service.UserService;
@@ -32,10 +30,5 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<UserLoginResponseDTO> loginUser(@RequestBody UserLoginDTO userLoginDTO) {
         return new ResponseEntity<>(userService.login(userLoginDTO), HttpStatus.OK);
-    }
-
-    @PostMapping("/gender")
-    public ResponseEntity<GenderResponseDTO> genderUser(@RequestBody GenderDTO genderDTO) {
-        return new ResponseEntity<>(userService.gender(genderDTO), HttpStatus.OK);
     }
 }

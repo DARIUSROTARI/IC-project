@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../components/appbar.dart';
-import '../pages/quantity.dart';
+import '../pages/woody.dart';
 import '../models/appbar_model.dart';
 
-class QuantityModel extends ChangeNotifier {
+class WoodyModel extends ChangeNotifier {
   late AppbarModel appbarModel;
   final unfocusNode = FocusNode();
 
@@ -13,7 +13,8 @@ class QuantityModel extends ChangeNotifier {
   bool? checkboxValue2 = false;
   bool? checkboxValue3 = false;
   bool? checkboxValue4 = false;
-  bool? checkboxValue5 = false;
+
+
 
   void initState(BuildContext context) {
     appbarModel = AppbarModel();

@@ -192,13 +192,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         AuthService.register(context, _model.firstnameController!.text, _model.lastnameController!.text,
                             _model.dateofbirthController!.text, _model.emailController!.text, _model.passwordController!.text);
                         },
-                    child: Center(
-                      child: Text(
+                        child: Center(
+                          child:Text(
                         style:GoogleFonts.playfairDisplay(),
                         'Create Account',
                       ),
+                        ),
                     ),
-                  ),
                 ),
                 ),
                 Row(

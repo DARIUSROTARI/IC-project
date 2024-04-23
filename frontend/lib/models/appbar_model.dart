@@ -1,13 +1,15 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../components/appbar.dart';
+export '../components/appbar.dart';
+
 class AppbarModel extends ChangeNotifier {
-  @override
-  void initState(BuildContext context) {}
+  // Puteți adăuga câmpurile de stare ale modelului aici
 
   @override
-  void dispose() {}
+  void dispose() {
+    super.dispose();
+    // Implementați aici orice acțiuni de curățare necesare
+  }
 }

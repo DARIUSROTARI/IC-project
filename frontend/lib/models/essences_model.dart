@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/appbar.dart';
-
+import '../models/appbar_model.dart';
 
 class EssencesModel extends ChangeNotifier {
   /// State fields for stateful widgets in this page.

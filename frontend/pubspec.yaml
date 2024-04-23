@@ -18,7 +18,7 @@ dependencies:
   provider: 6.1.2
   smooth_page_indicator: 1.1.0
   flutter_keyboard_visibility: 6.0.0
-
+  expandable: ^5.0.1  # or the latest version available
 
 dev_dependencies:
   flutter_launcher_icons: 0.13.1

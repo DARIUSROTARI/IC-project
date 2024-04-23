@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/appbar_model.dart';
-export '../models/appbar_model.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-import"../pages/menu.dart";
-export"../pages/menu.dart";
+import '../models/appbar_model.dart';
 
 class AppbarWidget extends StatefulWidget {
   const AppbarWidget({Key? key}) : super(key: key);
@@ -20,8 +17,8 @@ class _AppbarWidgetState extends State<AppbarWidget> {
   void initState() {
     super.initState();
     _model = AppbarModel();
-    _model.initState(context);
   }
+
 
   @override
   void dispose() {
@@ -32,56 +29,20 @@ class _AppbarWidgetState extends State<AppbarWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+      padding: EdgeInsets.only(top: 40),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Container(
-              width: 75,
-              height: 30,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => MenuWidget()));
-                      },
-                      style: ButtonStyle( // Adăugarea unui ButtonStyle pentru a defini culoarea butonului
-                        backgroundColor: MaterialStateProperty.all(Colors.black), // Setarea culorii butonului la negru
-                      ),
-                      child: Text(
-                        'Menu',
-                        style: GoogleFonts.playfairDisplay(
-                          color:Colors.white,
-                          textStyle: TextStyle(
-                            fontSize:10,
-                          ),
-
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(170, 0, 0, 0),
+            padding: EdgeInsets.only(left: 250),
             child: Container(
               width: 30,
               height: 30,
               decoration: BoxDecoration(
-                color: Colors.black,
+               // color: Colors.grey,
               ),
               child: ClipRRect(
+                //borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/images/images.png',
                   width: 300,
@@ -92,14 +53,15 @@ class _AppbarWidgetState extends State<AppbarWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            padding: EdgeInsets.only(left: 10),
             child: Container(
               width: 30,
               height: 30,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                //color: Colors.grey,
               ),
               child: ClipRRect(
+                //borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/images/online-shop-icon-vector.jpg',
                   width: 300,
@@ -110,14 +72,15 @@ class _AppbarWidgetState extends State<AppbarWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            padding: EdgeInsets.only(left: 10),
             child: Container(
               width: 30,
               height: 30,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                //color: Colors.grey,
               ),
               child: ClipRRect(
+                //borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/images/user.jpg',
                   width: 300,
@@ -127,10 +90,8 @@ class _AppbarWidgetState extends State<AppbarWidget> {
               ),
             ),
           ),
-
         ],
       ),
     );
-
   }
 }

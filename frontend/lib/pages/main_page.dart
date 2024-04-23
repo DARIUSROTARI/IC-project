@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../models/mainpage_model.dart'; // Importăm modelul de creare a contului
-export '../models/mainpage_model.dart';
 import '../components/appbar.dart';
+import '../models/mainpage_model.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../pages/category.dart';
 
 class MainpageWidget extends StatefulWidget {
   const MainpageWidget({Key? key}) : super(key: key);
@@ -37,15 +37,15 @@ class _MainpageWidgetState extends State<MainpageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          top: true,
+        backgroundColor: Colors.white, // or any color you prefer
+        body: SingleChildScrollView( // Wrap your content in a SingleChildScrollView
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min, // Change to min to prevent overflow
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                padding: EdgeInsets.only(top: 30),
                 child: Row(
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child: AppbarWidget(),
@@ -53,164 +53,129 @@ class _MainpageWidgetState extends State<MainpageWidget> {
                   ],
                 ),
               ),
+              SizedBox(height: 10), // Add some spacing between widgets
+              Opacity(
+                opacity: 0.7,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/images/Screenshot_2024-03-23_at_10.28.37.png',
+                      width: 170,
+                      height: 70,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10), // Add some spacing between widgets
+              Text(
+                'Few things about us',
+                style: GoogleFonts.playfairDisplay(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10), // Add some spacing between widgets
+              Text(
+                ' Have you ever searched for the perfect scent, \ntailored just for you, when choosing a perfume?\nOften, what you found on the market wasn\'t exactly\n what you desired. \nWe have come up with the solution to your problem.\nWe offer a diverse range of fragrances \nand categories that will surely please you! \nUnleash your imagination and \ncreate your own perfume with our help!\n',
+                style: GoogleFonts.playfairDisplay(
+                  textStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10), // Add some spacing between widgets
+              GestureDetector(
+                onTap: () {
+                  // Navigate to categories page
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryWidget()),
+                  );
+                },
+                child: Container(
+                  width: 130,
+                  height: 130,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child: Image.asset(
+                      'assets/images/cropped_image.png',
+                      width: 344,
+                      height: 165,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10), // Add some spacing between widgets
+              Text(
+                'Contact us',
+                style: GoogleFonts.playfairDisplay(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10), // Add some spacing between widgets
               Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Opacity(
-                    opacity: 0.3,
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          'assets/images/IMG_4707.jpg',
-                          width: 400,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/images/87390.png',
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(width: 5), // Add some spacing between widgets
+                  Text(
+                    'artduparfum',
+                    style: GoogleFonts.playfairDisplay(
+                      textStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic,
                       ),
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: Text(
-                  'Few things about us',
-                  style: GoogleFonts.playfairDisplay(
-                    textStyle: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(20, 30, 20, 0),
-                child: Text(
-                  'Have you ever searched for the perfect scent, tailored just for you, when choosing a perfume?\n Often, what you found on the market wasn\'t exactly what you desired. We have come up with the solution to your problem.\n We offer a diverse range of fragrances and categories that will surely please you! Unleash your imagination and create your own perfume with our help!',
-                  style: GoogleFonts.playfairDisplay(
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Text(
-                  'Contact us',
-                  style: GoogleFonts.playfairDisplay(
-                    textStyle: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 273,
-                height: 30,
-                decoration: BoxDecoration(
-
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(0),
-                        child: Image.asset(
-                          'assets/images/744_email.jpg',
-                          width: 20,
-                          height: 20,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'artduparfum@gmail.com',
-                      style: TextStyle(
-                        fontFamily: 'Playfair Display',
-                        letterSpacing: 0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: 188,
-                height: 32,
-                decoration: BoxDecoration(
-
-                ),
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        'assets/images/87390.png',
-                        width: 20,
-                        height: 20,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Text(
-                        ' artduparfum',
-                        style: TextStyle(
-                          fontFamily: 'Playfair Display',
-                          letterSpacing: 0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: 191,
-                height: 33,
-                decoration: BoxDecoration(
-
-                ),
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        'assets/images/facebook-logo-black-2019.png',
-                        width: 20,
-                        height: 20,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Text(
-                        'ArtDuParfum',
-                        style: TextStyle(
-                          fontFamily: 'Playfair Display',
-                          letterSpacing: 0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              SizedBox(height: 5), // Add some spacing between widgets
               Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Opacity(
-                    opacity: 0.3,
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(205, 0, 0, 0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          'assets/images/Screenshot_2024-03-23_at_10.28.37.png',
-                          width: 178,
-                          height: 84,
-                          fit: BoxFit.cover,
-                        ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/images/744_email.jpg',
+                      width: 25,
+                      height: 25,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(width: 5), // Add some spacing between widgets
+                  Text(
+                    'artduparfum@gmail.com',
+                    style: GoogleFonts.playfairDisplay(
+                      textStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic,
                       ),
                     ),
                   ),

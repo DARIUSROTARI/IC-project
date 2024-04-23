@@ -4,7 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../models/category_model.dart';
 export '../models/category_model.dart';
 import '../components/appbar.dart';
-
+import '../pages/types.dart';
+import '../pages/main_page.dart';
+import '../models/types_model.dart';
 class CategoryWidget extends StatefulWidget {
   const CategoryWidget({Key? key}) : super(key: key);
 
@@ -55,7 +57,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                   ],
                 ),
               ),
-              Row(
+        Padding(
+          padding: const EdgeInsets.only(top: 40.0),
+           child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -71,79 +75,88 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                   ),
                 ],
               ),
+        ),
               Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: Container(
-                  width: 150,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(
-                      color: Colors.black,
+                padding: const EdgeInsets.only(top: 30.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to main page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                   backgroundColor: Colors.grey[300],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                      side: BorderSide(color: Colors.black),
                     ),
+                    minimumSize: Size(150, 80),
                   ),
-                  child: Center(
-                    child: Text(
-                      'Male',
-                      style: GoogleFonts.playfairDisplay(
-                      textStyle: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: Container(
-                  width: 150,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(
-                      color: Colors.black, // Înlocuiți cu culoarea dorită.
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Female',
+                  child: Text(
+                    'Male',
                     style: GoogleFonts.playfairDisplay(
-                    textStyle: TextStyle(
-                    fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: Container(
-                  width: 150,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(
-                      color: Colors.black,
+                padding: const EdgeInsets.only(top: 30.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to main page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                   backgroundColor: Colors.grey[300],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                      side: BorderSide(color: Colors.black),
+                    ),
+                    minimumSize: Size(150, 80),
+                  ),
+                  child: Text(
+                    'Female',
+                    style: GoogleFonts.playfairDisplay(
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ),
-                  child: Center(
-                    child: Text(
-                      'Unisex',
-                      style: GoogleFonts.playfairDisplay(
-                        textStyle: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.italic,
-                        ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey[300],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                      side: BorderSide(color: Colors.black),
+                    ),
+                    minimumSize: Size(150, 80),
+                  ),
+                  child: Text(
+                    'Unisex',
+                    style: GoogleFonts.playfairDisplay(
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.italic,
                       ),
                     ),
                   ),
@@ -151,14 +164,36 @@ class _CategoryWidgetState extends State<CategoryWidget> {
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
+               // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ClipRRect(
-                    //borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(
-                      'assets/images/IMG_4734.JPG',
-                      width: 215,
-                      height: 360,
-                      fit: BoxFit.cover,
+                  // Button for navigating to main page
+                  Padding(
+                    padding:  EdgeInsets.fromLTRB(57, 50, 57, 0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigate to main page
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MainpageWidget()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                          side: BorderSide(color: Colors.black),
+                        ),
+                       // minimumSize: Size(, 80),
+                      ),
+                      child: Text(
+                        '< Back to HomePage',
+                        style: GoogleFonts.playfairDisplay(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -170,5 +205,3 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     );
   }
 }
-
-// Note: Replace theme and color references with those in your app.

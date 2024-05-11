@@ -19,6 +19,5 @@ public class ParfumDTO {
     private Types type;
     private Quantity  quantity;
     private Essences[] parfumEssences;
-    private User user;
 
 }

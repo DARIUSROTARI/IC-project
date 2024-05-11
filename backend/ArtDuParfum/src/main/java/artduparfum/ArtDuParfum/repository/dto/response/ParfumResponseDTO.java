@@ -13,6 +13,5 @@ public class ParfumResponseDTO {
     private Types type;
     private Quantity quantity;
     private Essences[] parfumEssences;
-    private User user;
-
+    private Long id;
 }

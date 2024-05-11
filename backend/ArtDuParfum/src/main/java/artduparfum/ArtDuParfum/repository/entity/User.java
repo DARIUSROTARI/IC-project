@@ -31,5 +31,12 @@ public class User {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Parfum> parfumes = new ArrayList<>();
+    private List<Parfum> favouriteParfumes = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Parfum> cart = new ArrayList<>();
 }

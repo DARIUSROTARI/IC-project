@@ -1,6 +1,7 @@
 package artduparfum.ArtDuParfum.repository.entity;
 
 import artduparfum.ArtDuParfum.repository.enums.Category;
+import artduparfum.ArtDuParfum.repository.enums.Essences;
 import artduparfum.ArtDuParfum.repository.enums.Quantity;
 import artduparfum.ArtDuParfum.repository.enums.Types;
 
@@ -28,12 +29,12 @@ public class Parfum {
     private Quantity quantity; // ML_30, ML_50, ...
 
     //fiecare parfum are o lista de esente
-    @OneToMany(
-            mappedBy = "parfum",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<ParfumEssence> parfumEssences = new ArrayList<>();
+//    @OneToMany(
+//            mappedBy = "parfum",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+    private List<Essences> parfumEssences = new ArrayList<>();
 
     @Getter
     @Setter
@@ -46,4 +47,5 @@ public class Parfum {
 
     @ManyToOne
     private User user;
+
 }

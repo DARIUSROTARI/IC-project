@@ -4,6 +4,8 @@ import 'package:proiect_ic/pages/essences.dart';
 import '../components/appbar.dart';
 import '../models/spicy_model.dart';
 export '../models/spicy_model.dart';
+import '../pages/quantity.dart';
+import 'package:proiect_ic/services/helper.dart';
 
 class SpicyWidget extends StatefulWidget {
   const SpicyWidget({Key? key}) : super(key: key);
@@ -98,6 +100,7 @@ class _SpicyWidgetState extends State<SpicyWidget> {
                   buildCheckboxRow('Cinnamon',spicyModel.checkboxValue1, (newValue) {
                     setState(() {
                       spicyModel.checkboxValue1 = newValue;
+                      Helper.setScent('Cinnamon', 1);
                     });
                   }),
                   buildCheckboxRow('Black Pepper', spicyModel.checkboxValue2, (newValue) {
@@ -152,7 +155,7 @@ class _SpicyWidgetState extends State<SpicyWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,

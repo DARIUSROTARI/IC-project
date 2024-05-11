@@ -4,6 +4,9 @@ import 'package:proiect_ic/pages/essences.dart';
 import '../components/appbar.dart';
 import '../models/others_model.dart';
 export '../models/others_model.dart';
+import '../pages/quantity.dart';
+import '../services/helper.dart';
+
 class OthersWidget extends StatefulWidget {
   const OthersWidget({Key? key}) : super(key: key);
 
@@ -98,6 +101,7 @@ class _OthersWidgetState extends State<OthersWidget> {
                   buildCheckboxRow('Tobacco',othersModel.checkboxValue1, (newValue) {
                     setState(() {
                       othersModel.checkboxValue1 = newValue;
+                      Helper.setScent('Tobacco', 1);
                     });
                   }),
                   buildCheckboxRow('Leather', othersModel.checkboxValue2, (newValue) {
@@ -150,7 +154,7 @@ class _OthersWidgetState extends State<OthersWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,

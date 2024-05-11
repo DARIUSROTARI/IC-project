@@ -4,6 +4,9 @@ import 'package:proiect_ic/pages/essences.dart';
 import '../components/appbar.dart';
 import '../models/fruity_model.dart';
 export '../models/fruity_model.dart';
+import '../pages/quantity.dart';
+import '../services/helper.dart';
+
 class FruityWidget extends StatefulWidget {
   const FruityWidget({Key? key}) : super(key: key);
 
@@ -97,6 +100,7 @@ class _FruityWidgetState extends State<FruityWidget> {
                   buildCheckboxRow('Mango',fruityModel.checkboxValue1, (newValue) {
                     setState(() {
                       fruityModel.checkboxValue1 = newValue;
+                      Helper.setScent('Mango', 1);
                     });
                   }),
                   buildCheckboxRow('Passion Fruit', fruityModel.checkboxValue2, (newValue) {
@@ -150,7 +154,7 @@ class _FruityWidgetState extends State<FruityWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,

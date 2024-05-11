@@ -12,6 +12,7 @@ import '../pages/spicy.dart';
 import '../pages/aquatic.dart';
 import '../pages/herbal.dart';
 import '../pages/others.dart';
+import '../services/helper.dart';
 export '../models/essences_model.dart';
 
 class EssencesWidget extends StatefulWidget {
@@ -88,13 +89,27 @@ class _EssencesWidgetState extends State<EssencesWidget> {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => FloralWidget()));
               }),
               // Pass the onPressed handler to the _buildContainer function
-              _buildContainer('Citrus',(){ Navigator.of(context).push(MaterialPageRoute(builder: (context) =>CitrusWidget()));}),
-              _buildContainer('Woody',(){ Navigator.of(context).push(MaterialPageRoute(builder: (context) => WoodyWidget()));}),
-              _buildContainer('Fruity',(){Navigator.of(context).push(MaterialPageRoute(builder: (context) => FruityWidget()));}),
-              _buildContainer('Spicy',(){Navigator.of(context).push(MaterialPageRoute(builder: (context) => SpicyWidget()));}),
-              _buildContainer('Herbal',(){Navigator.of(context).push(MaterialPageRoute(builder: (context) => HerbalWidget()));}),
-              _buildContainer('Aquatic',(){Navigator.of(context).push(MaterialPageRoute(builder: (context) => AquaticWidget()));}),
-              _buildContainer('Others',(){Navigator.of(context).push(MaterialPageRoute(builder: (context) => OthersWidget()));}),
+              _buildContainer('Citrus',(){
+                Helper.setEssences('Citrus');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>CitrusWidget()));}),
+              _buildContainer('Woody',(){
+                Helper.setEssences('Woody');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => WoodyWidget()));}),
+              _buildContainer('Fruity',(){
+                Helper.setEssences('Fruity');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FruityWidget()));}),
+              _buildContainer('Spicy',(){
+                Helper.setEssences('Spicy');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SpicyWidget()));}),
+              _buildContainer('Herbal',(){
+                Helper.setEssences('Herbal');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HerbalWidget()));}),
+              _buildContainer('Aquatic',(){
+                Helper.setEssences('Aquatic');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => AquaticWidget()));}),
+              _buildContainer('Others',(){
+                Helper.setEssences('Others');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => OthersWidget()));}),
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Row(

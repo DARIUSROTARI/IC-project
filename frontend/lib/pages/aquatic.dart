@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proiect_ic/pages/essences.dart';
+import 'package:proiect_ic/pages/quantity.dart';
 import '../components/appbar.dart';
 import '../models/aquatic_model.dart';
+import '../services/helper.dart';
 export '../models/aquatic_model.dart';
 
 class AquaticWidget extends StatefulWidget {
@@ -98,6 +100,7 @@ class _AquaticWidgetState extends State<AquaticWidget> {
                   buildCheckboxRow('Sea Water',aquaticModel.checkboxValue1, (newValue) {
                     setState(() {
                       aquaticModel.checkboxValue1 = newValue;
+                      Helper.setScent('Sea Water', 1);
                     });
                   }),
                   buildCheckboxRow('Sea Moss', aquaticModel.checkboxValue2, (newValue) {
@@ -137,7 +140,7 @@ class _AquaticWidgetState extends State<AquaticWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,

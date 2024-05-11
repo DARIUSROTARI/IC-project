@@ -4,6 +4,8 @@ import 'package:proiect_ic/pages/essences.dart';
 import '../components/appbar.dart';
 import '../models/woody_model.dart';
 export '../models/woody_model.dart';
+import '../pages/quantity.dart';
+import '../services/helper.dart';
 class WoodyWidget extends StatefulWidget {
   const WoodyWidget({Key? key}) : super(key: key);
 
@@ -97,6 +99,7 @@ class _WoodyWidgetState extends State<WoodyWidget> {
                   buildCheckboxRow('Sandalwood',woodyModel.checkboxValue1, (newValue) {
                     setState(() {
                       woodyModel.checkboxValue1 = newValue;
+                      Helper.setScent('Sandalwood', 1);
                     });
                   }),
                   buildCheckboxRow('Oak', woodyModel.checkboxValue2, (newValue) {
@@ -140,7 +143,7 @@ class _WoodyWidgetState extends State<WoodyWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,
@@ -156,6 +159,7 @@ class _WoodyWidgetState extends State<WoodyWidget> {
                       ),
                     ),
                   ),
+
                 ],
               ),
 

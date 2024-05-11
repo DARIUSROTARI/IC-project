@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/category_model.dart';
 export '../models/category_model.dart';
 import '../components/appbar.dart';
 import '../pages/types.dart';
 import '../pages/main_page.dart';
 import '../models/types_model.dart';
+import '../services/helper.dart';
+
 class CategoryWidget extends StatefulWidget {
   const CategoryWidget({Key? key}) : super(key: key);
 
@@ -80,7 +83,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigate to main page
+                    Helper.setCategory("Male");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
                     );
                   },
@@ -109,7 +112,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigate to main page
+                    Helper.setCategory("Female");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
                     );
                   },
@@ -138,6 +141,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
+                    Helper.setCategory("Unisex");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
                     );
                   },
@@ -204,4 +208,5 @@ class _CategoryWidgetState extends State<CategoryWidget> {
       ),
     );
   }
+
 }

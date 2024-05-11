@@ -3,13 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../components/appbar.dart';
 import '../models/quantity_model.dart';
 export '../models/quantity_model.dart';
+import '../pages/essences.dart';
+
 class QuantityWidget extends StatefulWidget {
   const QuantityWidget({Key? key}) : super(key: key);
 
   @override
   State<QuantityWidget> createState() => _QuantityWidgetState();
 }
-
 class _QuantityWidgetState extends State<QuantityWidget> {
   late QuantityModel quantityModel = QuantityModel();
 
@@ -37,11 +38,11 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 20), // Adăugăm padding-ul de 10
+                padding:const EdgeInsets.only(top: 40.0),
                 child: AppbarWidget(),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -60,40 +61,25 @@ class _QuantityWidgetState extends State<QuantityWidget> {
               ),
               Column(
                 children: [
-                  buildCheckboxRow('30 ml', quantityModel.checkboxValue1, (newValue) {
-                    setState(() {
-                      quantityModel.checkboxValue1 = newValue;
-                    });
-                  }),
-                  buildCheckboxRow('50 ml', quantityModel.checkboxValue2, (newValue) {
-                    setState(() {
-                      quantityModel.checkboxValue2 = newValue;
-                    });
-                  }),
-                  buildCheckboxRow('80 ml', quantityModel.checkboxValue3, (newValue) {
-                    setState(() {
-                      quantityModel.checkboxValue3 = newValue;
-                    });
-                  }),
-                  buildCheckboxRow('100 ml', quantityModel.checkboxValue4, (newValue) {
-                    setState(() {
-                      quantityModel.checkboxValue4 = newValue;
-                    });
-                  }),
-                  buildCheckboxRow('125 ml', quantityModel.checkboxValue5, (newValue) {
-                    setState(() {
-                      quantityModel.checkboxValue5 = newValue;
-                    });
-                  }),
+                  buildCheckboxRow('30 ml', quantityModel.checkboxValue1),
+                  buildCheckboxRow('50 ml', quantityModel.checkboxValue2),
+                  buildCheckboxRow('80 ml', quantityModel.checkboxValue3),
+                  buildCheckboxRow('100 ml', quantityModel.checkboxValue4),
+                  buildCheckboxRow('125 ml', quantityModel.checkboxValue5),
                 ],
               ),
-              ElevatedButton(
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
+            width: 150,
+          child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[300],
                   foregroundColor: Colors.black,
                   side: BorderSide(color: Colors.black),
                 ),
+
                 child: Text(
                   'Add to Favorites',
                   style: GoogleFonts.playfairDisplay(
@@ -103,13 +89,18 @@ class _QuantityWidgetState extends State<QuantityWidget> {
                     ),
                   ),
                 ),
+                ),
               ),
-              ElevatedButton(
+        ),
+         SizedBox(
+          width: 150,
+          child:ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[300],
                   foregroundColor: Colors.black,
                   side: BorderSide(color: Colors.black),
+
                 ),
                 child: Text(
                   'Add to Cart',
@@ -120,16 +111,31 @@ class _QuantityWidgetState extends State<QuantityWidget> {
                     ),
                   ),
                 ),
+          ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: Image.asset(
-                  'assets/images/IMG_4744.JPG',
-                  width: 100,
-                  height: 200,
-                  fit: BoxFit.cover,
+        SizedBox(
+          width: 150,
+          child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => EssencesWidget()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey[300],
+                  foregroundColor: Colors.black,
+                  side: BorderSide(color: Colors.black),
+                ),
+                child: Text(
+                  '< Back',
+                  style: GoogleFonts.playfairDisplay(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
                 ),
               ),
+        ),
+
             ],
           ),
         ),
@@ -137,13 +143,22 @@ class _QuantityWidgetState extends State<QuantityWidget> {
     );
   }
 
-  Widget buildCheckboxRow(String label, bool? value, ValueChanged<bool?> onChanged) {
+  Widget buildCheckboxRow(String label, bool? value) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Checkbox(
           value: value,
-          onChanged: onChanged,
+          onChanged: (newValue) {
+            setState(() {
+              // La selectarea unui checkbox, dezactivăm toate celelalte
+              quantityModel.checkboxValue1 = label == '30 ml' ? newValue : false;
+              quantityModel.checkboxValue2 = label == '50 ml' ? newValue : false;
+              quantityModel.checkboxValue3 = label == '80 ml' ? newValue : false;
+              quantityModel.checkboxValue4 = label == '100 ml' ? newValue : false;
+              quantityModel.checkboxValue5 = label == '125 ml' ? newValue : false;
+            });
+          },
         ),
         Text(
           label,

@@ -4,6 +4,8 @@ import 'package:proiect_ic/pages/essences.dart';
 import '../components/appbar.dart';
 import '../models/herbal_model.dart';
 export '../models/herbal_model.dart';
+import '../pages/quantity.dart';
+import '../services/helper.dart';
 
 class HerbalWidget extends StatefulWidget {
   const HerbalWidget({Key? key}) : super(key: key);
@@ -98,6 +100,7 @@ class _HerbalWidgetState extends State<HerbalWidget> {
                   buildCheckboxRow('Mint',herbalModel.checkboxValue1, (newValue) {
                     setState(() {
                       herbalModel.checkboxValue1 = newValue;
+                      Helper.setScent('Mint', 1);
                     });
                   }),
                   buildCheckboxRow('Rosemary', herbalModel.checkboxValue2, (newValue) {
@@ -146,7 +149,7 @@ class _HerbalWidgetState extends State<HerbalWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,

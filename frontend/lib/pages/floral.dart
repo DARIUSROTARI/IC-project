@@ -4,6 +4,8 @@ import 'package:proiect_ic/pages/essences.dart';
 import '../components/appbar.dart';
 import '../models/floral_model.dart';
 export '../models/floral_model.dart';
+import '../pages/quantity.dart';
+import '../services/helper.dart';
 class FloralWidget extends StatefulWidget {
   const FloralWidget({Key? key}) : super(key: key);
 
@@ -96,6 +98,7 @@ class _FloralWidgetState extends State<FloralWidget> {
                   buildCheckboxRow('Rose',floralModel.checkboxValue1, (newValue) {
                     setState(() {
                       floralModel.checkboxValue1 = newValue;
+                      Helper.setScent('Rose', 1);
                     });
                   }),
                   buildCheckboxRow('Jasmine', floralModel.checkboxValue2, (newValue) {
@@ -148,7 +151,8 @@ class _FloralWidgetState extends State<FloralWidget> {
                   ),
                   SizedBox(width: 10), // Adaugă un spațiu de 10 între butoane
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuantityWidget()));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[300],
                       foregroundColor: Colors.black,

@@ -1,13 +1,17 @@
 package artduparfum.ArtDuParfum.controller;
 
+import artduparfum.ArtDuParfum.repository.dto.request.ParfumDTO;
 import artduparfum.ArtDuParfum.repository.dto.request.UserLoginDTO;
 import artduparfum.ArtDuParfum.repository.dto.response.ParfumResponseDTO;
 import artduparfum.ArtDuParfum.repository.dto.response.UserLoginResponseDTO;
+import artduparfum.ArtDuParfum.repository.enums.Destination;
 import artduparfum.ArtDuParfum.service.ParfumService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/parfumes")
@@ -19,28 +23,20 @@ public class ParfumController {
         this.parfumService = parfumService;
     }
 
-    @GetMapping("/selectCategory/{category}")
-    public String selectCategory(@PathVariable String category) {
+   @PostMapping("/user-id={id}/destination={destination}")
+   public ResponseEntity<ParfumResponseDTO> createParfum(@PathVariable Long id, @PathVariable Long destination, @RequestBody ParfumDTO parfumDTO){
+       Destination destination1 = destination==0? Destination.CART : Destination.FAVOURITE;
+        return new ResponseEntity<>(parfumService.createParfum(id,parfumDTO,destination1), HttpStatus.CREATED);
+   }
 
-        return "redirect:/parfumes/" + category;
-    }
+   @GetMapping("/user-id={id}/cart")
+    public ResponseEntity<List<ParfumResponseDTO>> getCart(@PathVariable Long id){
+        return new ResponseEntity<>(parfumService.getCart(id), HttpStatus.OK);
+   }
 
-    @GetMapping("/parfumes/male")
-    public String showMaleParfums() {
-
-        return "pagina_tipuri_parfumuri_male";
-    }
-
-    @GetMapping("/parfumes/female")
-    public String showFemaleParfums() {
-
-        return "pagina_tipuri_parfumuri_female";
-    }
-
-    @GetMapping("/parfumes/unisex")
-    public String showUnisexParfums() {
-
-        return "pagina_tipuri_parfumuri_unisex";
+    @GetMapping("/user-id={id}/favourite")
+    public ResponseEntity<List<ParfumResponseDTO>> getFavourite(@PathVariable Long id){
+        return new ResponseEntity<>(parfumService.getFavourite(id), HttpStatus.OK);
     }
 
 }

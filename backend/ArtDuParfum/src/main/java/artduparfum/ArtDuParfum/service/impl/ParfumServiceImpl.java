@@ -36,11 +36,12 @@ public class ParfumServiceImpl implements ParfumService {
 
         // Mapează ParfumDTO la Parfum folosind ModelMapper
         Parfum parfum = modelMapper.map(parfumDTO, Parfum.class);
-        parfum.setUser(user);
 
         if(destination == Destination.CART){
+            parfum.setUser2(user);
             user.getCart().add(parfum);
         }else{
+            parfum.setUser(user);
             user.getFavouriteParfumes().add(parfum);
         }
 

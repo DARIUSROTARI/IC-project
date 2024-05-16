@@ -100,7 +100,7 @@ class _CitrusWidgetState extends State<CitrusWidget> {
                   buildCheckboxRow('Lemon',citrusModel.checkboxValue1, (newValue) {
                     setState(() {
                       citrusModel.checkboxValue1 = newValue;
-                      Helper.setScent('Lemon', 1);
+                      Helper.setScent('LEMON', 1);
                     });
                   }),
                   buildCheckboxRow('Orange', citrusModel.checkboxValue2, (newValue) {

@@ -98,7 +98,7 @@ class _FloralWidgetState extends State<FloralWidget> {
                   buildCheckboxRow('Rose',floralModel.checkboxValue1, (newValue) {
                     setState(() {
                       floralModel.checkboxValue1 = newValue;
-                      Helper.setScent('Rose', 1);
+                      Helper.setScent('ROSE', 1);
                     });
                   }),
                   buildCheckboxRow('Jasmine', floralModel.checkboxValue2, (newValue) {

@@ -86,29 +86,30 @@ class _EssencesWidgetState extends State<EssencesWidget> {
               ),
               SizedBox(height: 10),
               _buildContainer('Floral',() {
+                Helper.setEssences('FLORAL');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => FloralWidget()));
               }),
               // Pass the onPressed handler to the _buildContainer function
               _buildContainer('Citrus',(){
-                Helper.setEssences('Citrus');
+                Helper.setEssences('CITRUS');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) =>CitrusWidget()));}),
               _buildContainer('Woody',(){
-                Helper.setEssences('Woody');
+                Helper.setEssences('WOODY');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => WoodyWidget()));}),
               _buildContainer('Fruity',(){
-                Helper.setEssences('Fruity');
+                Helper.setEssences('FRUITY');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => FruityWidget()));}),
               _buildContainer('Spicy',(){
-                Helper.setEssences('Spicy');
+                Helper.setEssences('SPICY');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => SpicyWidget()));}),
               _buildContainer('Herbal',(){
-                Helper.setEssences('Herbal');
+                Helper.setEssences('HERBAL');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => HerbalWidget()));}),
               _buildContainer('Aquatic',(){
-                Helper.setEssences('Aquatic');
+                Helper.setEssences('AQUATIC');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => AquaticWidget()));}),
               _buildContainer('Others',(){
-                Helper.setEssences('Others');
+                Helper.setEssences('OTHERS');
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => OthersWidget()));}),
               Padding(
                 padding: EdgeInsets.only(top: 10),

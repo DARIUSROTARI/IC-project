@@ -99,7 +99,7 @@ class _WoodyWidgetState extends State<WoodyWidget> {
                   buildCheckboxRow('Sandalwood',woodyModel.checkboxValue1, (newValue) {
                     setState(() {
                       woodyModel.checkboxValue1 = newValue;
-                      Helper.setScent('Sandalwood', 1);
+                      Helper.setScent('SANDALWOOD', 1);
                     });
                   }),
                   buildCheckboxRow('Oak', woodyModel.checkboxValue2, (newValue) {

@@ -100,7 +100,7 @@ class _SpicyWidgetState extends State<SpicyWidget> {
                   buildCheckboxRow('Cinnamon',spicyModel.checkboxValue1, (newValue) {
                     setState(() {
                       spicyModel.checkboxValue1 = newValue;
-                      Helper.setScent('Cinnamon', 1);
+                      Helper.setScent('CINNAMON', 1);
                     });
                   }),
                   buildCheckboxRow('Black Pepper', spicyModel.checkboxValue2, (newValue) {

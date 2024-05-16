@@ -83,7 +83,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Helper.setCategory("Male");
+                    Helper.setCategory("MALE");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
                     );
                   },
@@ -112,7 +112,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Helper.setCategory("Female");
+                    Helper.setCategory("FEMALE");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
                     );
                   },
@@ -141,7 +141,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 padding: const EdgeInsets.only(top: 30.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    Helper.setCategory("Unisex");
+                    Helper.setCategory("UNISEX");
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TypesWidget()),
                     );
                   },

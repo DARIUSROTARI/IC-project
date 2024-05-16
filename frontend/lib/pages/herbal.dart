@@ -100,7 +100,7 @@ class _HerbalWidgetState extends State<HerbalWidget> {
                   buildCheckboxRow('Mint',herbalModel.checkboxValue1, (newValue) {
                     setState(() {
                       herbalModel.checkboxValue1 = newValue;
-                      Helper.setScent('Mint', 1);
+                      Helper.setScent('MINT', 1);
                     });
                   }),
                   buildCheckboxRow('Rosemary', herbalModel.checkboxValue2, (newValue) {

@@ -4,6 +4,7 @@ import '../components/appbar.dart';
 import '../models/quantity_model.dart';
 export '../models/quantity_model.dart';
 import '../pages/essences.dart';
+import '../services/helper.dart';
 
 class QuantityWidget extends StatefulWidget {
   const QuantityWidget({Key? key}) : super(key: key);
@@ -152,11 +153,58 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           onChanged: (newValue) {
             setState(() {
               // La selectarea unui checkbox, dezactivăm toate celelalte
-              quantityModel.checkboxValue1 = label == '30 ml' ? newValue : false;
-              quantityModel.checkboxValue2 = label == '50 ml' ? newValue : false;
-              quantityModel.checkboxValue3 = label == '80 ml' ? newValue : false;
-              quantityModel.checkboxValue4 = label == '100 ml' ? newValue : false;
-              quantityModel.checkboxValue5 = label == '125 ml' ? newValue : false;
+              switch(label) {
+                case '30 ml':
+                  {
+                    quantityModel.checkboxValue1 = newValue;
+                    quantityModel.checkboxValue2 = false;
+                    quantityModel.checkboxValue3 = false;
+                    quantityModel.checkboxValue4 = false;
+                    quantityModel.checkboxValue5 = false;
+                    Helper.setQuantity('ML_30');
+                    break;
+                  }
+                case '50 ml':
+                  {
+                    quantityModel.checkboxValue1 = false;
+                    quantityModel.checkboxValue2 = newValue;
+                    quantityModel.checkboxValue3 = false;
+                    quantityModel.checkboxValue4 = false;
+                    quantityModel.checkboxValue5 = false;
+                    Helper.setQuantity('ML_50');
+                    break;
+                  }
+                case '80 ml':
+                  {
+                    quantityModel.checkboxValue1 = false;
+                    quantityModel.checkboxValue2 = false;
+                    quantityModel.checkboxValue3 = newValue;
+                    quantityModel.checkboxValue4 = false;
+                    quantityModel.checkboxValue5 = false;
+                    Helper.setQuantity('ML_80');
+                    break;
+                  }
+                case '100 ml':
+                  {
+                    quantityModel.checkboxValue1 = false;
+                    quantityModel.checkboxValue2 = false;
+                    quantityModel.checkboxValue3 = false;
+                    quantityModel.checkboxValue4 = newValue;
+                    quantityModel.checkboxValue5 = false;
+                    Helper.setQuantity('ML_100');
+                    break;
+                  }
+                case '125 ml':
+                  {
+                    quantityModel.checkboxValue1 = false;
+                    quantityModel.checkboxValue2 = false;
+                    quantityModel.checkboxValue3 = false;
+                    quantityModel.checkboxValue4 = false;
+                    quantityModel.checkboxValue5 =  newValue;
+                    Helper.setQuantity('ML_125');
+                    break;
+                  }
+              }
             });
           },
         ),

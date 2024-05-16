@@ -100,7 +100,7 @@ class _AquaticWidgetState extends State<AquaticWidget> {
                   buildCheckboxRow('Sea Water',aquaticModel.checkboxValue1, (newValue) {
                     setState(() {
                       aquaticModel.checkboxValue1 = newValue;
-                      Helper.setScent('Sea Water', 1);
+                      Helper.setScent('SEA_WATER', 1);
                     });
                   }),
                   buildCheckboxRow('Sea Moss', aquaticModel.checkboxValue2, (newValue) {

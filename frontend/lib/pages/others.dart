@@ -101,7 +101,7 @@ class _OthersWidgetState extends State<OthersWidget> {
                   buildCheckboxRow('Tobacco',othersModel.checkboxValue1, (newValue) {
                     setState(() {
                       othersModel.checkboxValue1 = newValue;
-                      Helper.setScent('Tobacco', 1);
+                      Helper.setScent('TOBACCO', 1);
                     });
                   }),
                   buildCheckboxRow('Leather', othersModel.checkboxValue2, (newValue) {

@@ -100,7 +100,7 @@ class _FruityWidgetState extends State<FruityWidget> {
                   buildCheckboxRow('Mango',fruityModel.checkboxValue1, (newValue) {
                     setState(() {
                       fruityModel.checkboxValue1 = newValue;
-                      Helper.setScent('Mango', 1);
+                      Helper.setScent('MANGO', 1);
                     });
                   }),
                   buildCheckboxRow('Passion Fruit', fruityModel.checkboxValue2, (newValue) {

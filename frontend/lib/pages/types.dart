@@ -7,6 +7,7 @@ import '../components/appbar.dart';
 import '../models/types_model.dart';
 import '../pages/essences.dart';
 import '../pages/category.dart';
+import '../services/helper.dart';
 
 class TypesWidget extends StatefulWidget {
   const TypesWidget({Key? key}) : super(key: key);
@@ -171,6 +172,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                         if (newValue == true) {
                           setState(() {
                             _model.checkboxValue1 = newValue!;
+                            Helper.setTypes("EXTRAIT DU PARFUM");
                             _model.checkboxValue2 = false;
                             _model.checkboxValue3 = false;
                             _model.checkboxValue4 = false;
@@ -267,6 +269,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                           setState(() {
                             _model.checkboxValue1 = false;
                             _model.checkboxValue2 = newValue!;
+                            Helper.setTypes('EAU DE PARFUM');
                             _model.checkboxValue3 = false;
                             _model.checkboxValue4 = false;
                           });
@@ -363,6 +366,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                             _model.checkboxValue1 = false;
                             _model.checkboxValue2 = false;
                             _model.checkboxValue3 = newValue!;
+                            Helper.setTypes('EAU DE TOILETTE');
                             _model.checkboxValue4 = false;
                           });
                         }
@@ -459,6 +463,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                             _model.checkboxValue2 = false;
                             _model.checkboxValue3 = false;
                             _model.checkboxValue4 = newValue!;
+                            Helper.setTypes('EAU DE COLOGNE');
                           });
                         }
                       },

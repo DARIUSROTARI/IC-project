@@ -28,12 +28,6 @@ public class Parfum {
     @Enumerated(EnumType.STRING)
     private Quantity quantity; // ML_30, ML_50, ...
 
-    //fiecare parfum are o lista de esente
-//    @OneToMany(
-//            mappedBy = "parfum",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
     private List<Essences> parfumEssences = new ArrayList<>();
 
     @Getter
@@ -47,5 +41,8 @@ public class Parfum {
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private User user2;
 
 }

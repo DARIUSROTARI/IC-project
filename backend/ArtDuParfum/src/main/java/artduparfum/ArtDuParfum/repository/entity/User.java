@@ -1,9 +1,9 @@
 package artduparfum.ArtDuParfum.repository.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,8 @@ import java.util.List;
 @Entity
 @Table(name = "\"users\"")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -34,9 +36,18 @@ public class User {
     private List<Parfum> favouriteParfumes = new ArrayList<>();
 
     @OneToMany(
-            mappedBy = "user",
+            mappedBy = "user2",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<Parfum> cart = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER
+    )
+    private List<Order> orders = new ArrayList<>();
+
 }

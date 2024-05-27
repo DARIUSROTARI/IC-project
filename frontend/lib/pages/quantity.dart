@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proiect_ic/pages/favorite.dart';
+import 'package:proiect_ic/services/parfum_service.dart';
 import '../components/appbar.dart';
 import '../models/quantity_model.dart';
 export '../models/quantity_model.dart';
@@ -74,7 +76,10 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           child: SizedBox(
             width: 150,
           child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  ParfumService.createParfum(context, 1);
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewFavoriteRecipesWidget()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[300],
                   foregroundColor: Colors.black,
@@ -96,7 +101,9 @@ class _QuantityWidgetState extends State<QuantityWidget> {
          SizedBox(
           width: 150,
           child:ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  ParfumService.createParfum(context, 0);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[300],
                   foregroundColor: Colors.black,

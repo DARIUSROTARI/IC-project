@@ -172,7 +172,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                         if (newValue == true) {
                           setState(() {
                             _model.checkboxValue1 = newValue!;
-                            Helper.setTypes("EXTRAIT DU PARFUM");
+                            Helper.setTypes("EXTRAIT_DE_PARFUM");
                             _model.checkboxValue2 = false;
                             _model.checkboxValue3 = false;
                             _model.checkboxValue4 = false;
@@ -269,7 +269,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                           setState(() {
                             _model.checkboxValue1 = false;
                             _model.checkboxValue2 = newValue!;
-                            Helper.setTypes('EAU DE PARFUM');
+                            Helper.setTypes('EAU_DE_PARFUM');
                             _model.checkboxValue3 = false;
                             _model.checkboxValue4 = false;
                           });
@@ -366,7 +366,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                             _model.checkboxValue1 = false;
                             _model.checkboxValue2 = false;
                             _model.checkboxValue3 = newValue!;
-                            Helper.setTypes('EAU DE TOILETTE');
+                            Helper.setTypes('EAU_DE_TOILETTE');
                             _model.checkboxValue4 = false;
                           });
                         }
@@ -463,7 +463,7 @@ class _TypesWidgetState extends State<TypesWidget> {
                             _model.checkboxValue2 = false;
                             _model.checkboxValue3 = false;
                             _model.checkboxValue4 = newValue!;
-                            Helper.setTypes('EAU DE COLOGNE');
+                            Helper.setTypes('EAU_DE_COLOGNE');
                           });
                         }
                       },

@@ -4,7 +4,7 @@ import 'package:proiect_ic/pages/Register.dart';
 import 'package:proiect_ic/pages/essences.dart';
 
 void main() => runApp(MaterialApp(
-  home: EssencesWidget(),
+  home: AuthmainWidget(),
   routes: {
       //'/home': (context) => GetStartedWidget(),
       'register': (context) =>CreateAccountWidget(),

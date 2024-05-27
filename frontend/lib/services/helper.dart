@@ -10,7 +10,7 @@ class Helper{
     prefs.setString('category', category);
   }
 
-  static Future<String?> getCategory(index) async {
+  static Future<String?> getCategory() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('category');
   }
@@ -20,7 +20,7 @@ class Helper{
     prefs.setString('essences', essences);
   }
 
-  static Future<String?> getEssences(index) async {
+  static Future<String?> getEssences() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('essences');
   }
@@ -30,7 +30,7 @@ class Helper{
     prefs.setString('types', types);
   }
 
-  static Future<String?> getTypes(index) async {
+  static Future<String?> getTypes() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('types');
   }
@@ -40,7 +40,7 @@ class Helper{
     prefs.setString('quantity', quantity);
   }
 
-  static Future<String?> getQuantity(index) async {
+  static Future<String?> getQuantity() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('quantity');
   }
@@ -55,5 +55,54 @@ class Helper{
    return prefs.getString('scents[' + index.toString() + ']');
  }
 
-
+  static void setUserId(int id) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('userId', id);
   }
+
+  static Future<int?> getUserId() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('userId');
+  }
+
+  static void setFirstname(String firstname) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('firstname', firstname);
+  }
+
+  static Future<String?> getFirstname() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('firstname');
+  }
+
+  static void setLastname(String lastname) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('lastname', lastname);
+  }
+
+  static Future<String?> getLastname() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('lastname');
+  }
+
+  static void setEmail(String email) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('email', email);
+  }
+
+  static Future<String?> getEmail() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('email');
+  }
+
+  static void setDateOfBirth(String dateOfBirth) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('dateOfBirth', dateOfBirth);
+  }
+
+  static Future<String?> getDateOfBirth() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('dateOfBirth');
+  }
+
+}

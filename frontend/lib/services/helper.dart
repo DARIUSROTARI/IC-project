@@ -105,4 +105,13 @@ class Helper{
     return prefs.getString('dateOfBirth');
   }
 
+  static void setParfumId(int id) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('parfumId', id);
+  }
+
+  static Future<int?> getParfumId() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('parfumId');
+  }
 }

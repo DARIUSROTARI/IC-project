@@ -67,18 +67,7 @@ class _SpicyWidgetState extends State<SpicyWidget> {
                 padding: EdgeInsets.symmetric(vertical: 2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'You can choose maximum 5 different scents\n*You can also choose from the other essences \nin limit of a total of 5 scents*',
-                      style: GoogleFonts.playfairDisplay(
-                        textStyle: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                    ),
-                  ],
+
                 ),
               ),
               Padding(
@@ -123,7 +112,7 @@ class _SpicyWidgetState extends State<SpicyWidget> {
                       spicyModel.checkboxValue5 = newValue;
                     });
                   }),
-                  buildCheckboxRow('Vanilla', spicyModel.checkboxValue5, (newValue) {
+                  buildCheckboxRow('Vanilla', spicyModel.checkboxValue6, (newValue) {
                     setState(() {
                       spicyModel.checkboxValue6 = newValue;
                     });

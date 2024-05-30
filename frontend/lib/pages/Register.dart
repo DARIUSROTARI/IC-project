@@ -23,6 +23,12 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
   final bool isWeb = kIsWeb;
   late RegisterModel _model;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  String? _emailError;
+  String? _passwordError;
+  String? _firstnameError;
+  String? _lastnameError;
+  String? _dobError;
+  String? _confirmPasswordError;
 
   @override
   void initState() {
@@ -30,22 +36,43 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
     _model = RegisterModel();
     _model.initState(context);
 
-    _model.lastnameController = TextEditingController(); // Inițializăm controllerul pentru prenume
-    _model.firstnameController = TextEditingController(); // Inițializăm controllerul pt nume
-    _model.dateofbirthController = TextEditingController(); // Inițializăm controllerul de data nasterii
-    _model.emailController = TextEditingController();//email
-    _model.passwordController = TextEditingController();//parola
-    _model.confirmyourpasswordController = TextEditingController();//confirma parola
-
-    if (!isWeb) {
-      _keyboardVisibilitySubscription =
-          KeyboardVisibilityController().onChange.listen((bool visible) {
-            setState(() {
-              _isKeyboardVisible = visible;
-            });
-          });
-    }
+    _model.lastnameController =
+        TextEditingController(); // Inițializăm controllerul pentru prenume
+    _model.firstnameController =
+        TextEditingController(); // Inițializăm controllerul pt nume
+    _model.dateofbirthController =
+        TextEditingController(); // Inițializăm controllerul de data nasterii
+    _model.emailController = TextEditingController(); //email
+    _model.passwordController = TextEditingController(); //parola
+    _model.confirmyourpasswordController =
+        TextEditingController(); //confirma parola
   }
+    void _createAccount() {
+      setState(() {
+        _firstnameError = _model.firstnameValidator!(context, _model.firstnameController!.text);
+        _passwordError = _model.passwordValidator!(context, _model.passwordController!.text);
+        _emailError = _model.emailValidator!(context, _model.emailController!.text);
+        _lastnameError =_model.lastnameValidator!(context,_model.lastnameController!.text);
+        _dobError =_model.dobValidator!(context,_model.dateofbirthController!.text);
+        _confirmPasswordError = _model.confirmPasswordValidator!(context, _model.confirmyourpasswordController!.text);
+        if (_emailError == null && _passwordError == null && _firstnameError == null && _lastnameError==null && _dobError==null && _confirmPasswordError == null) {
+          String? createAccountError = _model.createAccount(
+            context,
+            _model.firstnameController!.text,
+            _model.lastnameController!.text,
+            _model.dateofbirthController!.text,
+            _model.emailController!.text,
+            _model.passwordController!.text,
+            _model.confirmyourpasswordController!.text,
+          );
+          if (createAccountError != null) {
+            // afișează eroarea în UI
+            _confirmPasswordError = createAccountError;
+          }
+
+        }
+      });
+    }
 
   @override
   void dispose() {
@@ -116,6 +143,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: ' Last name',
+                      errorText: _lastnameError,
                     ),
                   ),
                 ),
@@ -127,6 +155,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'First name',
+                      errorText: _firstnameError,
                     ),
                   ),
                 ),
@@ -138,6 +167,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Date of birth',
+                      errorText: _dobError,
                     ),
                   ),
                 ),
@@ -149,6 +179,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'E-mail',
+                      errorText: _emailError,
                     ),
                   ),
                 ),
@@ -160,6 +191,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
+                      errorText: _passwordError,
                     ),
                   ),
                 ),
@@ -171,6 +203,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Confirm your password',
+                      errorText: _confirmPasswordError,
                     ),
                   ),
                 ),
@@ -188,10 +221,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       ),
                     ),
                     child: TextButton( // Folosim un TextButton pentru a gestiona evenimentul de apăsare
-                      onPressed: () {
-                        AuthService.register(context, _model.firstnameController!.text, _model.lastnameController!.text,
-                            _model.dateofbirthController!.text, _model.emailController!.text, _model.passwordController!.text);
-                        },
+                      onPressed: _createAccount,
                         child: Center(
                           child:Text(
                         style:GoogleFonts.playfairDisplay(),

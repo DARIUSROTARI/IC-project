@@ -63,7 +63,7 @@ class _AuthmainWidgetState extends State<AuthmainWidget> {
                   child: TextFormField(
                     controller: _textFieldController1,
                     decoration: InputDecoration(
-                      labelText: 'Enter your name or e-mail',
+                      labelText: 'Enter your e-mail',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -86,8 +86,18 @@ class _AuthmainWidgetState extends State<AuthmainWidget> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
-                      AuthService.login(context, _textFieldController1!.text, _textFieldController2!.text);
+                  onPressed: () async {
+                    String? errorMessage = await AuthService.login(context, _textFieldController1.text, _textFieldController2.text);
+                    if (errorMessage == null) {
+                      // Autentificarea a fost reușită, navigăm către pagina principală
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MainpageWidget()));
+                    } else {
+                      // Afisăm mesajul de eroare în UI
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(errorMessage),
+                        duration: Duration(seconds: 3), // Opțional: specificăm durata pentru afișarea snackbar-ului
+                      ));
+                    }
                   },
                   child: Text('Login'),
                 ),

@@ -24,8 +24,10 @@ class Parfum {
     final type = json['type'];
     final quantity = json['quantity'];
     final Map<Type, double> typePrices = {
-      "EAU_DE_PARFUM": 10.0,
-      "EXTRAIT_DE_PARFUM": 15.0,
+      "EXTRAIT_DE_PARFUM": 35.0,
+      "EAU_DE_PARFUM": 25.0,
+      "EAU_DE_TOILETTE":20.0,
+      "EAU_DE_COLOGNE":15.0
     };
 
     final Map<Quantity, double> quantityPrices = {

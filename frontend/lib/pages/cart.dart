@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proiect_ic/components/Parfum.dart';
 import 'package:proiect_ic/components/parfume_widged.dart';
-import 'package:proiect_ic/services/parfum_service.dart'; // Import the service
+import 'package:proiect_ic/pages/place_order.dart';
+import 'package:proiect_ic/services/parfum_service.dart';
+
+import '../services/helper.dart'; // Import the service
 
 class ViewCartWidget extends StatefulWidget {
   ViewCartWidget();
@@ -65,8 +69,24 @@ class _ViewCartWidgetState extends State<ViewCartWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Cart'),
+      appBar:
+      PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 70.0), // Adjust the height as needed
+        child: Padding(
+          padding: EdgeInsets.only(top: 70.0,bottom:20), // Adjust the padding as needed
+          child:AppBar(
+            title: Text('Cart',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.playfairDisplay(
+                textStyle: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -106,23 +126,47 @@ class _ViewCartWidgetState extends State<ViewCartWidget> {
                   : () {
                 // Place order logic here
                 print('Order placed for: ${selectedParfum!.id}');
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OrderFormPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.grey,
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 textStyle: TextStyle(fontSize: 14),
               ),
-              child: Text('Place Order'),
+              child: Text('Place Order',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.playfairDisplay(
+                  textStyle: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),),
             ),
             SizedBox(height: 8),
             ElevatedButton(
-              onPressed: selectedParfum == null ? null : _removeSelectedParfum,
+              onPressed: selectedParfum == null
+                  ? null
+                  : () {
+                // Place order logic here
+                Helper.setParfumId(selectedParfum!.id);
+                ParfumService.removeFromCart();
+                _removeSelectedParfum();
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.grey,
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 textStyle: TextStyle(fontSize: 14),
               ),
-              child: Text('Remove'),
+              child: Text('Remove',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.playfairDisplay(
+                  textStyle: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),),
             ),
             SizedBox(height: 16),
           ],

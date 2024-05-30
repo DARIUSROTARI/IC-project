@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'Parfum.dart';
 
 class ParfumCard extends StatelessWidget {
@@ -9,50 +10,54 @@ class ParfumCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFFCAF0F8), // Setăm culoarea cardului
+      color: Colors.pink.shade100, // Setăm culoarea cardului
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Text(
-            //   parfum.id as String,
-            //   style: TextStyle(
-            //     fontSize: 16,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            //   textAlign: TextAlign.center,
-            // ),
             Text(
               parfum.type,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.playfairDisplay(
+                textStyle: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+
+                ),
               ),
               textAlign: TextAlign.center,
             ),
             Text(
               parfum.category,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.playfairDisplay(
+                textStyle: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+
+                ),
               ),
               textAlign: TextAlign.center,
             ),
             Text(
               parfum.quantity,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.playfairDisplay(
+                textStyle: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+
+                ),
               ),
               textAlign: TextAlign.center,
             ),
             Text(
                "\$" + parfum.price.toString(),
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.playfairDisplay(
+                textStyle: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+
+                ),
               ),
               textAlign: TextAlign.center,
             ),

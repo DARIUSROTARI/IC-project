@@ -86,4 +86,57 @@ class ParfumService {
     }
   }
 
+  static void moveParfumFromFavouritesToCart() async {
+    int? userId = await Helper.getUserId();
+    int? parfumId = await Helper.getParfumId();
+    var url = Uri.parse("http://10.0.2.2:8080/api/v1/parfumes/user-id=${userId}/move-favourite-to-cart/${parfumId}");
+
+    print(url);
+
+    http.Response response = await http.put(
+      url,
+      headers: headers,
+    );
+    if (response.statusCode == 200) {
+      print("Success");
+    } else {
+      throw Exception('Failed to move to cart');
+    }
+  }
+
+  static void removeFromFavourites() async {
+    int? userId = await Helper.getUserId();
+    int? parfumId = await Helper.getParfumId();
+    var url = Uri.parse("http://10.0.2.2:8080/api/v1/parfumes/user-id=${userId}/favourite/${parfumId}");
+
+    print(url);
+
+    http.Response response = await http.delete(
+      url,
+      headers: headers,
+    );
+    if (response.statusCode == 204) {
+      print("Delete successfully from favourites list!");
+    } else {
+      throw Exception('Failed to delete from favourites!');
+    }
+  }
+
+  static void removeFromCart() async {
+    int? userId = await Helper.getUserId();
+    int? parfumId = await Helper.getParfumId();
+    var url = Uri.parse("http://10.0.2.2:8080/api/v1/parfumes/user-id=${userId}/cart/${parfumId}");
+
+    print(url);
+
+    http.Response response = await http.delete(
+      url,
+      headers: headers,
+    );
+    if (response.statusCode == 204) {
+      print("Delete successfully from cart!");
+    } else {
+      throw Exception('Failed to delete from cart');
+    }
+  }
 }

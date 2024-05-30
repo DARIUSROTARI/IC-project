@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proiect_ic/Pages/authmain_widget.dart';
+import 'package:proiect_ic/pages/order_details_page.dart';
 
 import '../services/helper.dart';
 
@@ -7,8 +9,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight + 60.0), // Adjust the height as needed
+        child: Padding(
+          padding: EdgeInsets.only(top: 60.0), // Adjust the padding as needed
+          child: AppBar(
+            title: Text('Profile',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.playfairDisplay( // Folosim Google Fonts pentru fontul Playfair Display
+                textStyle: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+
+          ),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -24,27 +42,75 @@ class ProfilePage extends StatelessWidget {
             } else {
               var userData = snapshot.data!;
               return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   ProfileItem(label: 'First Name', value: userData['firstName'] ?? ''),
                   ProfileItem(label: 'Last Name', value: userData['lastName'] ?? ''),
                   ProfileItem(label: 'Email', value: userData['email'] ?? ''),
                   ProfileItem(label: 'Date of Birth', value: userData['dateOfBirth'] ?? ''),
-                  Spacer(), // This pushes the button to the bottom
+                  SizedBox(height: 70), // Add space between the last item and the button
                   Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Log out logic here
-                        // For example, you can navigate to the login page
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => AuthmainWidget()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                        textStyle: TextStyle(fontSize: 18),
-                      ),
-                      child: Text('Logout'),
+                    child: Column(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Edit profile logic here
+                            // For example, navigate to the edit profile page
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => OrderDetailsPage()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                            textStyle: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                          child: Text(
+                            'Your orders',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.playfairDisplay(
+                              textStyle: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.italic,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20), // Add space between the buttons
+                        ElevatedButton(
+                          onPressed: () {
+                            // Log out logic here
+                            // For example, you can navigate to the login page
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => AuthmainWidget()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                            textStyle: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                          child: Text(
+                            'Logout',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.playfairDisplay(
+                              textStyle: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.italic,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -81,20 +147,28 @@ class ProfileItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             '$label: ',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Colors.blueGrey,
+            //textAlign: TextAlign.center,
+            style: GoogleFonts.playfairDisplay( // Folosim Google Fonts pentru fontul Playfair Display
+              textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                //fontStyle: FontStyle.italic,
+              ),
             ),
           ),
           Text(
             value,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black87,
+           // textAlign: TextAlign.center,
+            style: GoogleFonts.playfairDisplay( // Folosim Google Fonts pentru fontul Playfair Display
+              textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                //fontStyle: FontStyle.italic,
+              ),
             ),
           ),
         ],

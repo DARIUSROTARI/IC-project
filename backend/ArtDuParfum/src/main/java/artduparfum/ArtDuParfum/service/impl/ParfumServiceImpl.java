@@ -66,4 +66,58 @@ public class ParfumServiceImpl implements ParfumService {
         Type listType = new TypeToken<List<ParfumResponseDTO>>(){}.getType();
         return modelMapper.map(user.getFavouriteParfumes(), listType);
     }
+
+    @Override
+    public void deleteFromCart(Long userId, Long parfumId) {
+        User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
+        Parfum parfum = parfumRepository.findById(parfumId).orElseThrow(() -> new RuntimeException("Parfum not found"));
+
+        if (user.getCart().contains(parfum)) {
+            user.getCart().remove(parfum);
+            parfum.setUser2(null); // Clear the association
+            parfumRepository.save(parfum);
+            userRepository.save(user);
+        } else {
+            throw new RuntimeException("Parfum not found in cart");
+        }
+    }
+
+    @Override
+    public void deleteFromFavourite(Long userId, Long parfumId) {
+        User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
+        Parfum parfum = parfumRepository.findById(parfumId).orElseThrow(() -> new RuntimeException("Parfum not found"));
+
+        if (user.getFavouriteParfumes().contains(parfum)) {
+            user.getFavouriteParfumes().remove(parfum);
+            parfum.setUser(null); // Clear the association
+            parfumRepository.save(parfum);
+            userRepository.save(user);
+        } else {
+            throw new RuntimeException("Parfum not found in favourite");
+        }
+    }
+
+    @Override
+    public void moveFromFavouriteToCart(Long userId, Long parfumId) {
+        User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
+        Parfum parfum = parfumRepository.findById(parfumId).orElseThrow(() -> new RuntimeException("Parfum not found"));
+
+        if (user.getFavouriteParfumes().contains(parfum)) {
+            Parfum cloneParfum = Parfum.builder()
+                    .type(parfum.getType())
+                    .category(parfum.getCategory())
+                    .quantity(parfum.getQuantity())
+                    .parfumEssences(parfum.getParfumEssences())
+                    .user2(user)
+                    .user(null)
+                    .build();
+            user.getCart().add(cloneParfum);
+            parfumRepository.save(cloneParfum);
+            userRepository.save(user);
+            userRepository.save(user);
+        } else {
+            throw new RuntimeException("Parfum not found in favourite");
+        }
+    }
+
 }

@@ -12,4 +12,7 @@ public interface ParfumService {
     List<ParfumResponseDTO> getCart(Long id);
 
     List<ParfumResponseDTO> getFavourite(Long id);
+    void deleteFromCart(Long userId, Long parfumId);
+    void deleteFromFavourite(Long userId, Long parfumId);
+    void moveFromFavouriteToCart(Long userId, Long parfumId);
 }

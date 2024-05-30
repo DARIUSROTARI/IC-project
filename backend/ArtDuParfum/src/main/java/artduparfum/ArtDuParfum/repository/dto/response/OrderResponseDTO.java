@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,4 +19,5 @@ public class OrderResponseDTO {
     private AddressDTO addressDTO;
     private DeliveryMethod deliveryMethod;
     private PaymentMethod paymentMethod;
+    private List<ParfumResponseDTO> parfums;
 }

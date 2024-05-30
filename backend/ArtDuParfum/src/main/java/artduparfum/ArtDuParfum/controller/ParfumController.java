@@ -39,4 +39,21 @@ public class ParfumController {
         return new ResponseEntity<>(parfumService.getFavourite(id), HttpStatus.OK);
     }
 
+    @DeleteMapping("/user-id={id}/cart/{parfumId}")
+    public ResponseEntity<Void> deleteFromCart(@PathVariable Long id, @PathVariable Long parfumId) {
+        parfumService.deleteFromCart(id, parfumId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/user-id={id}/favourite/{parfumId}")
+    public ResponseEntity<Void> deleteFromFavourite(@PathVariable Long id, @PathVariable Long parfumId) {
+        parfumService.deleteFromFavourite(id, parfumId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/user-id={id}/move-favourite-to-cart/{parfumId}")
+    public ResponseEntity<Void> moveFromFavouriteToCart(@PathVariable Long id, @PathVariable Long parfumId) {
+        parfumService.moveFromFavouriteToCart(id, parfumId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

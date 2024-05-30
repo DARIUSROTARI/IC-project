@@ -8,13 +8,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "orders")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class    Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

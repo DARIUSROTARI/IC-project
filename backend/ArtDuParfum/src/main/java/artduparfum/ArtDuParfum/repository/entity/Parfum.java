@@ -6,9 +6,7 @@ import artduparfum.ArtDuParfum.repository.enums.Quantity;
 import artduparfum.ArtDuParfum.repository.enums.Types;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,9 @@ import java.util.List;
 @Entity
 @Table(name = "\"parfumes\"")
 @Data
-
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Parfum {
 
     @Enumerated(EnumType.STRING)

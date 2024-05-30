@@ -11,6 +11,7 @@ import artduparfum.ArtDuParfum.repository.entity.Address;
 import artduparfum.ArtDuParfum.repository.entity.Order;
 import artduparfum.ArtDuParfum.repository.entity.User;
 import artduparfum.ArtDuParfum.repository.AddressRepository;
+import artduparfum.ArtDuParfum.repository.enums.Essences;
 import artduparfum.ArtDuParfum.service.OrderService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -67,6 +68,16 @@ public class OrderServiceImpl implements OrderService {
                         .addressDTO(mapAddressDTOToAddress(order.getAddress()))
                         .paymentMethod(order.getPaymentMethod())
                         .deliveryMethod(order.getDeliveryMethod())
+                        .parfums(order.getUser().getCart().stream()
+                                .map(parfum -> ParfumResponseDTO.builder()
+                                        .category(parfum.getCategory())
+                                        .type(parfum.getType())
+                                        .quantity(parfum.getQuantity())
+                                        .parfumEssences(mapListToArrayEssences(parfum.getParfumEssences()))
+                                        .id(parfum.getId())
+                                        .build())
+                                .toList()
+                        )
                         .build()
                 ).toList();
     }
@@ -91,5 +102,14 @@ public class OrderServiceImpl implements OrderService {
                 .region(address.getRegion())
                 .postCode(address.getPostCode())
                 .build();
+    }
+
+    private Essences[] mapListToArrayEssences(List<Essences> essences) {
+        int size = essences.size();
+        Essences[] array = new Essences[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = essences.get(i);
+        }
+        return  array;
     }
 }
